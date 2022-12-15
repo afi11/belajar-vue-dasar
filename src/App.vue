@@ -1,35 +1,50 @@
 <template>
-    <h1>Luas Segitiga</h1>
-    <div><label>Alas</label>
-        <input v-model="alas" type="number" name="alas" />
-    </div>
-    <div><label>Tinggi</label>
-        <input v-model="tinggi" type="number" name="tinggi" />
-    </div>
-    <h3>Luas</h3>
-    <h1>{{ luas }}</h1>
-    <button v-on:click="hitung()">Hitung</button>
+    <TitlePage title="Pengeluaran Harian" />
+    <h2 v-if="warning" class="warning">Pengeluaran Anda Terlalu Banyak</h2>
+    <ListPengeluaran v-if="showList" :dataPengeluaran="daftarPengeluaran" />
+    <FormPengeluaran @entri-pengeluaran="entriPengeluaran($event)" />
 </template>
 
 <script>
-import { ref } from 'vue'
+import FormPengeluaran from './components-composition-api/FormPengeluaran.vue';
+import ListPengeluaran from './components-composition-api/ListPengeluaran.vue';
+import TitlePage from './components-composition-api/TitlePage.vue';
+
+import { ref, computed, watch } from 'vue'
 // Reactive artinya data nya dalam bentuk object
 export default {
     name: "App",
+    components: {
+        FormPengeluaran,
+        ListPengeluaran,
+        TitlePage
+    },
     setup() {
-        const alas = ref(0);
-        const tinggi = ref(0);
-        const luas = ref(0);
+        const daftarPengeluaran = ref([
+            { nominal: 100000, keterangan: "wkwkwkw" }, { nominal: 20000, keterangan: "pretttttttt" }
+        ]);
 
-       function hitung(){
-            luas.value = parseFloat(alas.value * tinggi.value) / 2
-       }
+        const warning = ref(false);
+
+        function entriPengeluaran(event) {
+            daftarPengeluaran.value.push(event)
+        }
+
+        const showList = computed(() => daftarPengeluaran.value.length > 0);
+        const totalPengeluaran = computed(() => daftarPengeluaran.value.reduce((accum, item) => accum+parseInt(item.nominal), 0));
+
+        watch(totalPengeluaran, (newValue) => {
+            if(newValue > 100000){
+                warning.value = true
+            }
+        });
 
         return {
-            alas,
-            tinggi,
-            luas,
-            hitung
+            daftarPengeluaran,
+            warning,
+            entriPengeluaran,
+            showList,
+            totalPengeluaran
         }
     }
 }
