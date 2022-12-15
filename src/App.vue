@@ -10,6 +10,8 @@
   <LoopsVue />
   <!-- Ganti Materi -->
   <TitleComponent title="Ini Komponen dg Static Props" />
+  <!-- Ganti Materi  -->
+  <ListPengeluaran v-if="daftarPengeluaran.length > 0" :dataPengeluaran="daftarPengeluaran" />
 </template>
 
 <script>
@@ -19,7 +21,8 @@ import TwoWayDataBinding from "./components/TwoWayDataBinding.vue";
 import ConditionalVue from "./components/Conditional.vue";
 import LoopsVue from "./components/Loops.vue"
 // New Part
-import TitleComponent from "./components/TitleComponent.vue"
+import TitleComponent from "./components/TitleComponent.vue";
+import ListPengeluaran from "./components/ListPengeluaran.vue";
 
 export default {
   name: 'App',
@@ -29,7 +32,15 @@ export default {
     TwoWayDataBinding,
     ConditionalVue,
     LoopsVue,
-    TitleComponent
+    TitleComponent,
+    ListPengeluaran
+  },
+  data() {
+    return {
+      daftarPengeluaran: [
+        {nominal: 100000, keterangan: "wkwkwkw"}, {nominal: 20000, keterangan: "pretttttttt"}
+      ]
+    }
   }
 }
 </script>
