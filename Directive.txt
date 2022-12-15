@@ -1,0 +1,5 @@
+Penggunaan dari directives disesuaikan dengan jenis directives nya, contoh:
+
+v-if : digunakan untuk membantu kita dalam membuat conditional pada template.
+v-on : menambahkan event listener pada suatu element.
+v-model : digunakan untuk two way data binding pada suatu form element.
