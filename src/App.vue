@@ -1,14 +1,18 @@
 <template>
   <DeklaratifRendering />
+  <!-- Ganti Materi -->
+  <EventListener />
 </template>
 
 <script>
 import DeklaratifRendering from "./components/DeklaratifRendering.vue";
+import EventListener from "./components/EventListener.vue"
 
 export default {
   name: 'App',
   components: {
-    DeklaratifRendering
+    DeklaratifRendering,
+    EventListener
   }
 }
 </script>
