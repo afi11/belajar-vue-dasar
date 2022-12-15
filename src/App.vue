@@ -8,10 +8,12 @@
   <ConditionalVue />
   <!-- Ganti Materi -->
   <LoopsVue />
-  <!-- Ganti Materi -->
+  <!-- Ganti Materi (Komponen Static Props) -->
   <TitleComponent title="Ini Komponen dg Static Props" />
-  <!-- Ganti Materi  -->
+  <!-- Ganti Materi (Komponen Dynamic Props)  -->
   <ListPengeluaran v-if="daftarPengeluaran.length > 0" :dataPengeluaran="daftarPengeluaran" />
+  <!-- Ganti Materi (Emit) -->
+  <FormPengeluaran @entri-pengeluaran="entriPengeluaran($event)" />
 </template>
 
 <script>
@@ -23,6 +25,7 @@ import LoopsVue from "./components/Loops.vue"
 // New Part
 import TitleComponent from "./components/TitleComponent.vue";
 import ListPengeluaran from "./components/ListPengeluaran.vue";
+import FormPengeluaran from "./components/FormPengeluaran.vue";
 
 export default {
   name: 'App',
@@ -33,13 +36,19 @@ export default {
     ConditionalVue,
     LoopsVue,
     TitleComponent,
-    ListPengeluaran
+    ListPengeluaran,
+    FormPengeluaran
   },
   data() {
     return {
       daftarPengeluaran: [
         {nominal: 100000, keterangan: "wkwkwkw"}, {nominal: 20000, keterangan: "pretttttttt"}
       ]
+    }
+  },
+  methods: {
+    entriPengeluaran(event) {
+      this.daftarPengeluaran.push(event)
     }
   }
 }
