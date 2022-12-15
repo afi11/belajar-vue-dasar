@@ -8,6 +8,7 @@
     </div>
     <h3>Luas</h3>
     <h1>{{ luas }}</h1>
+    <button v-on:click="hitung()">Hitung</button>
 </template>
 
 <script>
@@ -20,12 +21,15 @@ export default {
         const tinggi = ref(0);
         const luas = ref(0);
 
-        console.log(alas);
+       function hitung(){
+            luas.value = parseFloat(alas.value * tinggi.value) / 2
+       }
 
         return {
             alas,
             tinggi,
-            luas
+            luas,
+            hitung
         }
     }
 }
