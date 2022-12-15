@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <DeklaratifRendering />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DeklaratifRendering from "./components/DeklaratifRendering.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    DeklaratifRendering
   }
 }
 </script>
