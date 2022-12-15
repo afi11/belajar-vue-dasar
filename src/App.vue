@@ -6,6 +6,8 @@
   <TwoWayDataBinding />
   <!-- Ganti Materi -->
   <ConditionalVue />
+  <!-- Ganti Materi -->
+  <LoopsVue />
 </template>
 
 <script>
@@ -13,6 +15,7 @@ import DeklaratifRendering from "./components/DeklaratifRendering.vue";
 import EventListener from "./components/EventListener.vue";
 import TwoWayDataBinding from "./components/TwoWayDataBinding.vue";
 import ConditionalVue from "./components/Conditional.vue";
+import LoopsVue from "./components/Loops.vue"
 
 export default {
   name: 'App',
@@ -20,7 +23,8 @@ export default {
     DeklaratifRendering,
     EventListener,
     TwoWayDataBinding,
-    ConditionalVue
+    ConditionalVue,
+    LoopsVue
   }
 }
 </script>
