@@ -2,17 +2,21 @@
   <DeklaratifRendering />
   <!-- Ganti Materi -->
   <EventListener />
+  <!-- Ganti Materi -->
+  <TwoWayDataBinding />
 </template>
 
 <script>
 import DeklaratifRendering from "./components/DeklaratifRendering.vue";
 import EventListener from "./components/EventListener.vue"
+import TwoWayDataBinding from "./components/TwoWayDataBinding.vue"
 
 export default {
   name: 'App',
   components: {
     DeklaratifRendering,
-    EventListener
+    EventListener,
+    TwoWayDataBinding
   }
 }
 </script>
