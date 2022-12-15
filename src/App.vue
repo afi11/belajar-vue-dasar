@@ -4,19 +4,23 @@
   <EventListener />
   <!-- Ganti Materi -->
   <TwoWayDataBinding />
+  <!-- Ganti Materi -->
+  <ConditionalVue />
 </template>
 
 <script>
 import DeklaratifRendering from "./components/DeklaratifRendering.vue";
-import EventListener from "./components/EventListener.vue"
-import TwoWayDataBinding from "./components/TwoWayDataBinding.vue"
+import EventListener from "./components/EventListener.vue";
+import TwoWayDataBinding from "./components/TwoWayDataBinding.vue";
+import ConditionalVue from "./components/Conditional.vue";
 
 export default {
   name: 'App',
   components: {
     DeklaratifRendering,
     EventListener,
-    TwoWayDataBinding
+    TwoWayDataBinding,
+    ConditionalVue
   }
 }
 </script>
