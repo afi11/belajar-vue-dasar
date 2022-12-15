@@ -8,6 +8,8 @@
   <ConditionalVue />
   <!-- Ganti Materi -->
   <LoopsVue />
+  <!-- Ganti Materi -->
+  <TitleComponent title="Ini Komponen dg Static Props" />
 </template>
 
 <script>
@@ -16,6 +18,8 @@ import EventListener from "./components/EventListener.vue";
 import TwoWayDataBinding from "./components/TwoWayDataBinding.vue";
 import ConditionalVue from "./components/Conditional.vue";
 import LoopsVue from "./components/Loops.vue"
+// New Part
+import TitleComponent from "./components/TitleComponent.vue"
 
 export default {
   name: 'App',
@@ -24,7 +28,8 @@ export default {
     EventListener,
     TwoWayDataBinding,
     ConditionalVue,
-    LoopsVue
+    LoopsVue,
+    TitleComponent
   }
 }
 </script>
