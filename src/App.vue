@@ -11,7 +11,9 @@
   <!-- Ganti Materi (Komponen Static Props) -->
   <TitleComponent title="Ini Komponen dg Static Props" />
   <!-- Ganti Materi (Komponen Dynamic Props)  -->
-  <ListPengeluaran v-if="daftarPengeluaran.length > 0" :dataPengeluaran="daftarPengeluaran" />
+  <!-- Computed & Watch -->
+  <h2 v-if="warning" class="warning">Pengeluaran Anda Terlalu Banyak</h2>
+  <ListPengeluaran v-if="showList" :dataPengeluaran="daftarPengeluaran" />
   <!-- Ganti Materi (Emit) -->
   <FormPengeluaran @entri-pengeluaran="entriPengeluaran($event)" />
 </template>
@@ -43,12 +45,30 @@ export default {
     return {
       daftarPengeluaran: [
         {nominal: 100000, keterangan: "wkwkwkw"}, {nominal: 20000, keterangan: "pretttttttt"}
-      ]
+      ],
+      warning: false
     }
   },
   methods: {
     entriPengeluaran(event) {
       this.daftarPengeluaran.push(event)
+    }
+  },
+  // untuk menghitung & mengurangi logic di template
+  computed: {
+    showList: function() {
+      return this.daftarPengeluaran.length > 0;
+    },
+    totalPengeluaran: function() {
+      return this.daftarPengeluaran.reduce((accum, item) => accum+parseInt(item.nominal), 0);
+    }
+  },
+  // untuk menampilkan data based on kondisi tertentu
+  watch: {
+    totalPengeluaran: function(val) {
+      if(val > 100000){
+        this.warning = true;
+      }
     }
   }
 }
