@@ -1,30 +1,31 @@
 <template>
     <h1>Luas Segitiga</h1>
     <div><label>Alas</label>
-        <input v-model="state.alas" type="number" name="alas" />
+        <input v-model="alas" type="number" name="alas" />
     </div>
     <div><label>Tinggi</label>
-        <input v-model="state.tinggi" type="number" name="tinggi" />
+        <input v-model="tinggi" type="number" name="tinggi" />
     </div>
     <h3>Luas</h3>
-    <h1>{{ state.luas }}</h1>
+    <h1>{{ luas }}</h1>
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { ref } from 'vue'
 // Reactive artinya data nya dalam bentuk object
 export default {
     name: "App",
     setup() {
-        const state = reactive({
-            alas: 0,
-            tinggi: 0,
-            luas: 0
-        });
+        const alas = ref(0);
+        const tinggi = ref(0);
+        const luas = ref(0);
 
+        console.log(alas);
 
         return {
-            state
+            alas,
+            tinggi,
+            luas
         }
     }
 }
